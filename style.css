@@ -31,10 +31,27 @@ a {
   text-transform: uppercase;
 }
 
+/* Tagline */
 .tagline {
   margin-top: 10px;
   color: #cccccc;
   font-size: 1.2rem;
+  max-width: 720px;          /* keeps lines from getting too wide */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;          /* lines align with each other */
+  line-height: 1.5;
+  margin-bottom: 2.2rem;     /* space below tagline */
+}
+
+/* extra spacing between lines */
+.tagline br {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.tagline span {
+  display: block;
 }
 
 /* Card Container */
@@ -117,17 +134,6 @@ input:focus, select:focus {
   margin-top: 8px;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .app-name {
-    font-size: 2.4rem;
-  }
-  .card {
-    padding: 25px;
-    margin: 20px auto;
-  }
-}
-
 /* Week stats row */
 .week-stats {
   display: flex;
@@ -150,6 +156,7 @@ input:focus, select:focus {
 .stat-icon {
   font-size: 1rem;
 }
+
 .rpe-note {
   margin-top: 6px;
   font-size: 0.95rem;
@@ -158,11 +165,6 @@ input:focus, select:focus {
 
 /* Mobile responsiveness improvements */
 @media (max-width: 600px) {
-
-  /* Show intentional break on mobile */
-  br.mobile-break {
-    display: inline;
-  }
 
   .hero {
     padding: 1.5rem 0 1rem;
@@ -181,7 +183,6 @@ input:focus, select:focus {
     padding: 0 0.75rem;
   }
 
-  /* Card / form sizing */
   .card {
     padding: 1.5rem 1rem;
     width: 95%;
@@ -200,7 +201,7 @@ input:focus, select:focus {
   input,
   select {
     font-size: 1.1rem;
-    height: 56px;       /* was 48 */
+    height: 56px;
     padding: 0.6rem 0.75rem;
   }
 
