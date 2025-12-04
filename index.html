@@ -8,63 +8,71 @@
 <body class="page page-input">
   <header class="hero">
     <h1 class="app-name">SPRINT IQ</h1>
-   <p class="tagline">
-    AI-designed sprint workouts for men who want to get lean, look athletic, and keep their edge.<br>
-    <span style="opacity: 0.9;">Train smarter. Train faster.</span>
-</p>
-
+    <p class="tagline">
+      AI-designed sprint workouts for men who want to get lean, look athletic, and keep their edge.<br>
+      <span style="opacity: 0.9;">Train smarter. Train faster.</span>
+    </p>
   </header>
 
   <main class="card">
     <h2>Build your 6-week sprint plan</h2>
 
     <form id="sprint-form">
-      <label>
-        Age
-        <input type="number" id="age" required />
+      <label for="age">
+        Age (18–99)
       </label>
+      <input
+        type="number"
+        id="age"
+        name="age"
+        min="18"
+        max="99"
+        maxlength="2"
+        placeholder="18–99"
+        required
+      />
 
-      <label>
+      <label for="level">
         Conditioning level
-        <select id="level" required>
-          <option value="">Select...</option>
-          <option value="beginner">Beginner</option>
-          <option value="intermediate">Intermediate</option>
-          <option value="advanced">Advanced</option>
-        </select>
       </label>
+      <select id="level" required>
+        <option value="">Select...</option>
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+      </select>
 
-      <label>
+      <label for="days">
         Training days per week
-        <select id="days" required>
-          <option value="">Select...</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>
       </label>
+      <select id="days" required>
+        <option value="">Select...</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
 
-      <label>
+      <label for="surface">
         Sprint surface
-        <select id="surface" required>
-          <option value="">Select...</option>
-          <option value="track">Track</option>
-          <option value="treadmill">Treadmill</option>
-          <option value="field">Field</option>
-          <option value="pavement">Pavement (e.g., road, parking lot)</option>
-        </select>
       </label>
+      <select id="surface" required>
+        <option value="">Select...</option>
+        <option value="track">Track</option>
+        <option value="treadmill">Treadmill</option>
+        <option value="field">Field</option>
+        <option value="pavement">Pavement (e.g., road, parking lot)</option>
+      </select>
 
-      <label>
+      <label for="injury">
         Injury concerns
-        <select id="injury" required>
-          <option value="">Select...</option>
-          <option value="none">None</option>
-          <option value="knees">Knees</option>
-          <option value="hamstrings">Hamstrings</option>
-          <option value="lower-back">Lower back</option>
-        </select>
       </label>
+      <select id="injury" required>
+        <option value="">Select...</option>
+        <option value="none">None</option>
+        <option value="knees">Knees</option>
+        <option value="hamstrings">Hamstrings</option>
+        <option value="lower-back">Lower back</option>
+      </select>
 
       <button type="submit" class="primary-btn">
         Generate my training plan
