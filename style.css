@@ -36,22 +36,20 @@ a {
   margin-top: 10px;
   color: #cccccc;
   font-size: 1.2rem;
-  max-width: 720px;          /* keeps lines from getting too wide */
+  max-width: 720px;
   margin-left: auto;
   margin-right: auto;
-  text-align: left;          /* lines align with each other */
-  line-height: 1.5;
-  margin-bottom: 2.2rem;     /* space below tagline */
+  text-align: left;       /* first sentence is left-aligned */
+  line-height: 1.55;
+  margin-bottom: 2.2rem;  /* space below tagline */
 }
 
-/* extra spacing between lines */
-.tagline br {
+/* Bold, centered second line */
+.tag-bold {
   display: block;
-  margin-bottom: 0.4rem;
-}
-
-.tagline span {
-  display: block;
+  text-align: center;
+  font-weight: 700;
+  margin-top: 0.6rem;     /* space between first sentence and bold line */
 }
 
 /* Card Container */
@@ -176,11 +174,16 @@ input:focus, select:focus {
   }
 
   .tagline {
-    font-size: 1.0rem;
+    font-size: 1.05rem;
     line-height: 1.45;
-    max-width: 95%;
-    margin: 0 auto 1.5rem;
+    max-width: 94%;
+    margin: 0 auto 1.8rem;
     padding: 0 0.75rem;
+    text-align: left;
+  }
+
+  .tag-bold {
+    font-size: 1.15rem;
   }
 
   .card {
@@ -210,3 +213,4 @@ input:focus, select:focus {
     padding: 1rem 1.25rem;
   }
 }
+
