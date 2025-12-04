@@ -44,12 +44,43 @@ a {
   margin-bottom: 2.2rem;  /* space below tagline */
 }
 
-/* Bold, centered second line */
+/* Bold training tagline — glowing pulse effect */
 .tag-bold {
-  display: block;
+  display: inline-block;
   text-align: center;
   font-weight: 700;
-  margin-top: 0.6rem;     /* space between first sentence and bold line */
+  font-size: 1.35rem;
+  margin-top: 1.3rem;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #00aaff;
+  text-shadow: 0 0 6px rgba(0, 170, 255, 0.45);
+  animation: glowPulse 2.2s ease-in-out infinite;
+}
+
+/* Hover state — brighter glow + slight lift */
+.tag-bold:hover {
+  text-shadow: 0 0 12px rgba(0, 170, 255, 0.95);
+  border-bottom-color: #00ccff;
+  transform: translateY(-2px);
+}
+
+/* Keyframes for breathing pulse glow */
+@keyframes glowPulse {
+  0% {
+    text-shadow: 0 0 3px rgba(0, 170, 255, 0.3),
+                 0 0 6px rgba(0, 170, 255, 0.35);
+    border-bottom-color: rgba(0, 170, 255, 0.55);
+  }
+  50% {
+    text-shadow: 0 0 8px rgba(0, 170, 255, 0.75),
+                 0 0 14px rgba(0, 170, 255, 0.55);
+    border-bottom-color: rgba(0, 204, 255, 0.95);
+  }
+  100% {
+    text-shadow: 0 0 3px rgba(0, 170, 255, 0.3),
+                 0 0 6px rgba(0, 170, 255, 0.35);
+    border-bottom-color: rgba(0, 170, 255, 0.55);
+  }
 }
 
 /* Card Container */
@@ -182,8 +213,10 @@ input:focus, select:focus {
     text-align: left;
   }
 
+  /* Bigger tagline on mobile for better readability */
   .tag-bold {
-    font-size: 1.15rem;
+    font-size: 1.5rem;
+    margin-top: 1.6rem;
   }
 
   .card {
