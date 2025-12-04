@@ -54,8 +54,15 @@ function setupPlanPage() {
   container.innerHTML = "";
 
   const intro = document.createElement("p");
-  intro.textContent = `Here is your 6-week, 100-yard sprint program (${days} day(s) per week, ${level} level on ${surface}).`;
-  container.appendChild(intro);
+intro.textContent = `Here is your 6-week, 100-yard sprint program (${days} day(s) per week, ${level} level on ${surface}).`;
+container.appendChild(intro);
+
+const rpeNote = document.createElement("p");
+rpeNote.className = "rpe-note";
+rpeNote.textContent =
+  "Note: RPE = Rate of Perceived Exertion (1–10). Think of it as how hard each sprint should feel — from 1 = very easy to 10 = all-out.";
+container.appendChild(rpeNote);
+
 
   plan.forEach((week) => {
     const card = document.createElement("div");
