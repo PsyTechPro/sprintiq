@@ -65,9 +65,26 @@ function setupPlanPage() {
     title.textContent = `Week ${week.week} — ${week.focus}`;
     card.appendChild(title);
 
-    const details = document.createElement("p");
-    details.textContent = `${week.sessionsPerWeek} session(s) per week. Each session: ${week.reps} x 100-yard sprints at RPE ${week.rpe}, ${week.restSeconds} seconds rest between sprints.`;
-    card.appendChild(details);
+    const stats = document.createElement("div");
+stats.className = "week-stats";
+
+stats.innerHTML = `
+  <div class="stat-item">
+    <span class="stat-icon">🏁</span>
+    <strong>${week.reps}</strong> x 100 yds
+  </div>
+  <div class="stat-item">
+    <span class="stat-icon">⚡</span>
+    RPE <strong>${week.rpe}</strong>
+  </div>
+  <div class="stat-item">
+    <span class="stat-icon">⏱</span>
+    Rest <strong>${week.restSeconds}s</strong>
+  </div>
+`;
+
+card.appendChild(stats);
+
 
     const notes = document.createElement("p");
     notes.className = "week-notes";
