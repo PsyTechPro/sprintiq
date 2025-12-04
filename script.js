@@ -13,7 +13,7 @@ function setupFormPage() {
   const form = document.getElementById("sprint-form");
   const ageInput = document.getElementById("age");
 
-  // ---- AGE INPUT GUARD: keep age between 18 and 99, max 2 digits ----
+  // ---- AGE INPUT: digits only, max 2 characters ----
   if (ageInput) {
     ageInput.addEventListener("input", function () {
       // Remove anything that isn't a digit
@@ -24,20 +24,10 @@ function setupFormPage() {
         value = value.slice(0, 2);
       }
 
-      if (value !== "") {
-        let num = parseInt(value, 10);
-
-        // Clamp to 18–99
-        if (num < 18) num = 18;
-        if (num > 99) num = 99;
-
-        value = String(num);
-      }
-
       this.value = value;
     });
   }
-  // -------------------------------------------------------------------
+  // --------------------------------------------------
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -48,7 +38,7 @@ function setupFormPage() {
     const surface = document.getElementById("surface").value;
     const injury = document.getElementById("injury").value;
 
-    // Extra safety check on submit
+    // Final age check on submit
     if (!age || age < 18 || age > 99) {
       alert("Please enter an age between 18 and 99.");
       return;
@@ -224,4 +214,3 @@ function buildSprintPlan({ age, level, days, surface, injury }) {
 
   return plan;
 }
-
