@@ -155,3 +155,41 @@ input:focus, select:focus {
   font-size: 0.95rem;
   color: #cccccc;
 }
+
+/* Mobile responsiveness improvements */
+@media (max-width: 600px) {
+  
+  /* Adjust tagline text for intentional wrapping */
+  .tagline {
+    font-size: 1rem;
+    line-height: 1.45;
+    padding: 0 1rem;
+  }
+
+  .tagline br {
+    display: block;
+  }
+
+  /* Slightly increase hero title size */
+  .app-name {
+    font-size: 1.9rem;
+  }
+
+  /* Card responsiveness */
+  .card {
+    padding: 1.5rem;
+    width: 95%;
+  }
+
+  /* Larger form fields */
+  input,
+  select {
+    font-size: 1.1rem;
+    height: 48px;
+  }
+
+  button.primary-btn {
+    font-size: 1.15rem;
+    padding: 1rem;
+  }
+}
