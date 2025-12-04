@@ -135,7 +135,24 @@ function buildSprintPlan({ age, level, days, surface, injury }) {
     injuryNote = "Stay tall while sprinting, brace your core, and avoid excessive forward lean.";
   }
 
-  const surfaceNote = `Surface: ${surface}. Choose shoes appropriate for that surface and do at least 2 easy build-up runs before the first sprint.`;
+  let surfaceDescription;
+
+if (surface === "track") {
+  surfaceDescription = "Track: consistent surface with good grip.";
+} else if (surface === "treadmill") {
+  surfaceDescription = "Treadmill: use a slight incline (1–2%) to mimic outdoor running.";
+} else if (surface === "field") {
+  surfaceDescription = "Field/grass: softer landing, but watch for holes or uneven ground.";
+} else if (surface === "pavement") {
+  surfaceDescription = "Pavement (road/parking lot): harder on the joints, so wear cushioned shoes and avoid potholes, loose gravel, and painted lines when wet.";
+} else {
+  surfaceDescription = "Choose a surface you know well and feel confident sprinting on.";
+}
+
+const surfaceNote =
+  surfaceDescription +
+  " Do at least 2 easy build-up runs before the first full sprint of each session.";
+
 
   const plan = [];
 
