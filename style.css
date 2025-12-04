@@ -31,7 +31,7 @@ a {
   text-transform: uppercase;
 }
 
-/* Tagline (first sentence) */
+/* Tagline (first sentence only) */
 .tagline {
   margin-top: 10px;
   color: #cccccc;
@@ -41,17 +41,17 @@ a {
   margin-right: auto;
   text-align: left;        /* first sentence is left-aligned */
   line-height: 1.55;
-  margin-bottom: 1.4rem;   /* reduced space below tagline */
+  margin-bottom: 1.0rem;   /* slightly smaller gap below tagline */
 }
 
 /* Bold training tagline — glowing pulse effect */
 .tag-bold {
-  display: inline-block;   /* width matches text only */
+  display: inline-block;   /* underline matches text width */
   width: auto;
   text-align: center;
   font-weight: 700;
   font-size: 1.35rem;
-  margin-top: 0.4rem;      /* smaller gap above the bold line */
+  margin-top: 0.35rem;     /* small gap above the bold line */
   padding-bottom: 4px;
   border-bottom: 2px solid #00aaff;
   text-shadow: 0 0 6px rgba(0, 170, 255, 0.45);
@@ -211,15 +211,15 @@ select:focus {
     font-size: 1.05rem;
     line-height: 1.45;
     max-width: 94%;
-    margin: 0 auto 1.4rem;   /* keep smaller gap on mobile too */
+    margin: 0 auto 1.0rem;   /* smaller gap on mobile too */
     padding: 0 0.75rem;
     text-align: left;
   }
 
-  /* Slightly larger but still balanced on mobile */
+  /* Slightly larger tagline on mobile */
   .tag-bold {
     font-size: 1.4rem;
-    margin-top: 0.45rem;
+    margin-top: 0.4rem;
   }
 
   .card {
@@ -249,4 +249,3 @@ select:focus {
     padding: 1rem 1.25rem;
   }
 }
-
