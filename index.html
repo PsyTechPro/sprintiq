@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SprintIQ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page page-input">
+  <header class="hero">
+    <h1 class="app-name">SprintIQ</h1>
+    <p class="tagline">
+      AI-designed sprint workouts for men who want to get lean and stay powerful.
+    </p>
+  </header>
+
+  <main class="card">
+    <h2>Build your 6-week sprint plan</h2>
+
+    <form id="sprint-form">
+      <label>
+        Age
+        <input type="number" id="age" required />
+      </label>
+
+      <label>
+        Conditioning level
+        <select id="level" required>
+          <option value="">Select...</option>
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select>
+      </label>
+
+      <label>
+        Training days per week
+        <select id="days" required>
+          <option value="">Select...</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </label>
+
+      <label>
+        Sprint surface
+        <select id="surface" required>
+          <option value="">Select...</option>
+          <option value="track">Track</option>
+          <option value="treadmill">Treadmill</option>
+          <option value="field">Field</option>
+          <option value="bike">Assault bike / bike</option>
+        </select>
+      </label>
+
+      <label>
+        Injury concerns
+        <select id="injury" required>
+          <option value="">Select...</option>
+          <option value="none">None</option>
+          <option value="knees">Knees</option>
+          <option value="hamstrings">Hamstrings</option>
+          <option value="lower-back">Lower back</option>
+        </select>
+      </label>
+
+      <button type="submit" class="primary-btn">
+        Generate my training plan
+      </button>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
