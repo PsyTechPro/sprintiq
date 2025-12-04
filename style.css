@@ -71,3 +71,22 @@ input, select {
 .primary-btn:hover {
   background-color: #0085cc;
 }
+/* Week plan card styling */
+.week-card {
+  background-color: #1a1a1a;
+  border-left: 4px solid #00aaff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 6px;
+}
+
+.week-card h3 {
+  margin-top: 0;
+  color: #00ccff;
+}
+
+.week-notes {
+  font-size: 0.9em;
+  color: #cccccc;
+  margin-top: 10px;
+}
