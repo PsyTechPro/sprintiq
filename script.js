@@ -11,34 +11,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function setupFormPage() {
   const form = document.getElementById("sprint-form");
+  const ageInput = document.getElementById("age");
+
+  // ---- AGE INPUT GUARD: keep age between 18 and 99, max 2 digits ----
+  if (ageInput) {
+    ageInput.addEventListener("input", function () {
+      // Remove anything that isn't a digit
+      let value = this.value.replace(/[^\d]/g, "");
+
+      // Limit to 2 characters
+      if (value.length > 2) {
+        value = value.slice(0, 2);
+      }
+
+      if (value !== "") {
+        let num = parseInt(value, 10);
+
+        // Clamp to 18–99
+        if (num < 18) num = 18;
+        if (num > 99) num = 99;
+
+        value = String(num);
+      }
+
+      this.value = value;
+    });
+  }
+  // -------------------------------------------------------------------
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const age = document.getElementById("age").value;
-    // Validate age (18-99)
-    const ageInput = document.getElementById("age");
-    ageInput.addEventListener("input", function () {
-      // Limit to 2 digits max
-      if (this.value.length > 2) {
-        this.value = this.value.slice(0, 2);
-      }
-
-      // Clamp values within allowed range
-      if (this.value !== "" && this.value < 18) {
-        this.value = 18;
-      }
-      if (this.value !== "" && this.value > 99) {
-        this.value = 99;
-      }
-    });
-
-
-    
+    const age = Number(document.getElementById("age").value);
     const level = document.getElementById("level").value;
     const days = document.getElementById("days").value;
     const surface = document.getElementById("surface").value;
     const injury = document.getElementById("injury").value;
+
+    // Extra safety check on submit
+    if (!age || age < 18 || age > 99) {
+      alert("Please enter an age between 18 and 99.");
+      return;
+    }
 
     // Pack values into the URL so plan.html can read them
     const params = new URLSearchParams({
@@ -73,15 +87,14 @@ function setupPlanPage() {
   container.innerHTML = "";
 
   const intro = document.createElement("p");
-intro.textContent = `Here is your 6-week, 100-yard sprint program (${days} day(s) per week, ${level} level on ${surface}).`;
-container.appendChild(intro);
+  intro.textContent = `Here is your 6-week, 100-yard sprint program (${days} day(s) per week, ${level} level on ${surface}).`;
+  container.appendChild(intro);
 
-const rpeNote = document.createElement("p");
-rpeNote.className = "rpe-note";
-rpeNote.textContent =
-  "Note: RPE = Rate of Perceived Exertion (1–10). Think of it as how hard each sprint should feel, from 1 = very easy to 10 = all-out.";
-container.appendChild(rpeNote);
-
+  const rpeNote = document.createElement("p");
+  rpeNote.className = "rpe-note";
+  rpeNote.textContent =
+    "Note: RPE = Rate of Perceived Exertion (1–10). Think of it as how hard each sprint should feel, from 1 = very easy to 10 = all-out.";
+  container.appendChild(rpeNote);
 
   plan.forEach((week) => {
     const card = document.createElement("div");
@@ -92,25 +105,24 @@ container.appendChild(rpeNote);
     card.appendChild(title);
 
     const stats = document.createElement("div");
-stats.className = "week-stats";
+    stats.className = "week-stats";
 
-stats.innerHTML = `
-  <div class="stat-item">
-    <span class="stat-icon">🏁</span>
-    <strong>${week.reps}</strong> x 100 yds
-  </div>
-  <div class="stat-item">
-    <span class="stat-icon">⚡</span>
-    RPE <strong>${week.rpe}</strong>
-  </div>
-  <div class="stat-item">
-    <span class="stat-icon">⏱</span>
-    Rest <strong>${week.restSeconds}s</strong>
-  </div>
-`;
+    stats.innerHTML = `
+      <div class="stat-item">
+        <span class="stat-icon">🏁</span>
+        <strong>${week.reps}</strong> x 100 yds
+      </div>
+      <div class="stat-item">
+        <span class="stat-icon">⚡</span>
+        RPE <strong>${week.rpe}</strong>
+      </div>
+      <div class="stat-item">
+        <span class="stat-icon">⏱</span>
+        Rest <strong>${week.restSeconds}s</strong>
+      </div>
+    `;
 
-card.appendChild(stats);
-
+    card.appendChild(stats);
 
     const notes = document.createElement("p");
     notes.className = "week-notes";
@@ -163,22 +175,21 @@ function buildSprintPlan({ age, level, days, surface, injury }) {
 
   let surfaceDescription;
 
-if (surface === "track") {
-  surfaceDescription = "Track: consistent surface with good grip.";
-} else if (surface === "treadmill") {
-  surfaceDescription = "Treadmill: use a slight incline (1–2%) to mimic outdoor running.";
-} else if (surface === "field") {
-  surfaceDescription = "Field/grass: softer landing, but watch for holes or uneven ground.";
-} else if (surface === "pavement") {
-  surfaceDescription = "Pavement (road/parking lot): harder on the joints, so wear cushioned shoes and avoid potholes, loose gravel, and painted lines when wet.";
-} else {
-  surfaceDescription = "Choose a surface you know well and feel confident sprinting on.";
-}
+  if (surface === "track") {
+    surfaceDescription = "Track: consistent surface with good grip.";
+  } else if (surface === "treadmill") {
+    surfaceDescription = "Treadmill: use a slight incline (1–2%) to mimic outdoor running.";
+  } else if (surface === "field") {
+    surfaceDescription = "Field/grass: softer landing, but watch for holes or uneven ground.";
+  } else if (surface === "pavement") {
+    surfaceDescription = "Pavement (road/parking lot): harder on the joints, so wear cushioned shoes and avoid potholes, loose gravel, and painted lines when wet.";
+  } else {
+    surfaceDescription = "Choose a surface you know well and feel confident sprinting on.";
+  }
 
-const surfaceNote =
-  surfaceDescription +
-  " Do at least 2 easy build-up runs before the first full sprint of each session.";
-
+  const surfaceNote =
+    surfaceDescription +
+    " Do at least 2 easy build-up runs before the first full sprint of each session.";
 
   const plan = [];
 
@@ -213,3 +224,4 @@ const surfaceNote =
 
   return plan;
 }
+
