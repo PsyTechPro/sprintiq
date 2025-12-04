@@ -1,0 +1,73 @@
+/* Global page styling */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: #fff;
+}
+
+/* Hero branding */
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+}
+
+.app-name {
+  font-size: 3em;
+  margin: 0;
+  color: #00aaff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.tagline {
+  color: #e0e0e0;
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
+/* Card container */
+.card {
+  background-color: #222;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 10px;
+  border: 2px solid #00aaff;
+}
+
+/* Form fields */
+label {
+  display: block;
+  margin: 20px 0;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #333;
+  border: 1px solid #444;
+  color: #fff;
+  font-size: 1em;
+}
+
+/* CTA Button */
+.primary-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #00aaff;
+  border-radius: 8px;
+  border: none;
+  font-size: 1.1em;
+  color: #111;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 20px;
+  transition: background-color 0.2s ease;
+}
+
+.primary-btn:hover {
+  background-color: #0085cc;
+}
