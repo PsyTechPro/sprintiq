@@ -16,6 +16,25 @@ function setupFormPage() {
     event.preventDefault();
 
     const age = document.getElementById("age").value;
+    // Validate age (18-99)
+    const ageInput = document.getElementById("age");
+    ageInput.addEventListener("input", function () {
+      // Limit to 2 digits max
+      if (this.value.length > 2) {
+        this.value = this.value.slice(0, 2);
+      }
+
+      // Clamp values within allowed range
+      if (this.value !== "" && this.value < 18) {
+        this.value = 18;
+      }
+      if (this.value !== "" && this.value > 99) {
+        this.value = 99;
+      }
+    });
+
+
+    
     const level = document.getElementById("level").value;
     const days = document.getElementById("days").value;
     const surface = document.getElementById("surface").value;
