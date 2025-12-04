@@ -60,7 +60,7 @@ container.appendChild(intro);
 const rpeNote = document.createElement("p");
 rpeNote.className = "rpe-note";
 rpeNote.textContent =
-  "Note: RPE = Rate of Perceived Exertion (1–10). Think of it as how hard each sprint should feel — from 1 = very easy to 10 = all-out.";
+  "Note: RPE = Rate of Perceived Exertion (1–10). Think of it as how hard each sprint should feel, from 1 = very easy to 10 = all-out.";
 container.appendChild(rpeNote);
 
 
