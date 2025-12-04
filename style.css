@@ -158,38 +158,54 @@ input:focus, select:focus {
 
 /* Mobile responsiveness improvements */
 @media (max-width: 600px) {
-  
-  /* Adjust tagline text for intentional wrapping */
-  .tagline {
-    font-size: 1rem;
-    line-height: 1.45;
-    padding: 0 1rem;
+
+  /* Show intentional break on mobile */
+  br.mobile-break {
+    display: inline;
   }
 
-  .tagline br {
-    display: block;
+  .hero {
+    padding: 1.5rem 0 1rem;
   }
 
-  /* Slightly increase hero title size */
   .app-name {
     font-size: 1.9rem;
+    margin-bottom: 0.6rem;
   }
 
-  /* Card responsiveness */
+  .tagline {
+    font-size: 1.0rem;
+    line-height: 1.45;
+    max-width: 95%;
+    margin: 0 auto 1.5rem;
+    padding: 0 0.75rem;
+  }
+
+  /* Card / form sizing */
   .card {
-    padding: 1.5rem;
+    padding: 1.5rem 1rem;
     width: 95%;
+    margin: 0 auto 2rem;
   }
 
-  /* Larger form fields */
+  .card h2 {
+    font-size: 1.25rem;
+  }
+
+  label {
+    font-size: 0.95rem;
+  }
+
+  /* Bigger, thumb-friendly inputs */
   input,
   select {
     font-size: 1.1rem;
-    height: 48px;
+    height: 56px;       /* was 48 */
+    padding: 0.6rem 0.75rem;
   }
 
   button.primary-btn {
     font-size: 1.15rem;
-    padding: 1rem;
+    padding: 1rem 1.25rem;
   }
 }
