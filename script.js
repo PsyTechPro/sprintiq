@@ -164,7 +164,6 @@ function buildSprintPlan({ age, level, days, surface, injury }) {
   }
 
   let surfaceDescription;
-
   if (surface === "track") {
     surfaceDescription = "Track: consistent surface with good grip.";
   } else if (surface === "treadmill") {
@@ -172,7 +171,8 @@ function buildSprintPlan({ age, level, days, surface, injury }) {
   } else if (surface === "field") {
     surfaceDescription = "Field/grass: softer landing, but watch for holes or uneven ground.";
   } else if (surface === "pavement") {
-    surfaceDescription = "Pavement (road/parking lot): harder on the joints, so wear cushioned shoes and avoid potholes, loose gravel, and painted lines when wet.";
+    surfaceDescription =
+      "Pavement (road/parking lot): harder on the joints, so wear cushioned shoes and avoid potholes, loose gravel, and painted lines when wet.";
   } else {
     surfaceDescription = "Choose a surface you know well and feel confident sprinting on.";
   }
@@ -195,11 +195,43 @@ function buildSprintPlan({ age, level, days, surface, injury }) {
     else if (week <= 4) focus = "Speed & consistency";
     else focus = "Peak speed & confidence";
 
+    // Week-specific coaching cue
+    let weekCue = "";
+    switch (week) {
+      case 1:
+        weekCue =
+          "This is a foundation week: stay relaxed, leave 1–2 strong sprints 'in the tank,' and focus on smooth acceleration, not top speed.";
+        break;
+      case 2:
+        weekCue =
+          "Slightly raise the effort on the last 2–3 sprints, but keep your form crisp. You should finish feeling challenged, not destroyed.";
+        break;
+      case 3:
+        weekCue =
+          "Volume nudges up this week. Keep the first half of your sprints controlled, then let the second half drift closer to your target RPE.";
+        break;
+      case 4:
+        weekCue =
+          "Hold the same volume but try to keep the quality high: consistent times, no 'easy' reps, and smooth walk-back or timed rest.";
+        break;
+      case 5:
+        weekCue =
+          "Peak week: if you feel good, let the final 2–3 sprints approach true sprint speed while keeping at least 1 good rep in reserve.";
+        break;
+      case 6:
+        weekCue =
+          "Deload week: you can keep the same structure but back off the effort slightly, or drop 1 sprint per session if you feel beat up.";
+        break;
+      default:
+        weekCue = "";
+    }
+
     const notes =
+      `This week you'll do ${sessionsPerWeek} session(s) of about ${reps} × 100-yard sprints at RPE ${rpe} with roughly ${restSeconds} seconds of rest between reps. ` +
       `Warm up thoroughly with 5–10 minutes of easy movement and 3–4 progressive build-up runs. ` +
-      `${surfaceNote} ` +
+      surfaceNote + " " +
       (injuryNote ? injuryNote + " " : "") +
-      "Finish each session with light walking and stretching.";
+      weekCue;
 
     plan.push({
       week,
